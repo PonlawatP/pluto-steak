@@ -16,6 +16,8 @@ import { FoodGroupComponent } from './components/food-group/food-group.component
 import { FoodCardComponent } from './components/food-card/food-card.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
+import { CartComponent } from './pages/cart/cart.component';
+import { AdminComponent } from './pages/admin/admin.component';
 import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     FoodCardComponent,
     RegisterComponent,
     LoginComponent,
+    CartComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
