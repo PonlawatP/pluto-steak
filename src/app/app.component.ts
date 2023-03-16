@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faLocationArrow, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { Routes } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +8,4 @@ import { faLocationArrow, faPhone } from '@fortawesome/free-solid-svg-icons';
 })
 export class AppComponent {
   title = 'pluto-steak';
-  faLocationArrow = faLocationArrow;
-  faPhone = faPhone;
 }
