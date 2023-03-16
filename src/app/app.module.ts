@@ -16,8 +16,19 @@ import { FoodGroupComponent } from './components/food-group/food-group.component
 import { FoodCardComponent } from './components/food-card/food-card.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, MenuComponent, MainComponent, FooterComponent, FoodGroupComponent, FoodCardComponent, RegisterComponent, LoginComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    MenuComponent,
+    MainComponent,
+    FooterComponent,
+    FoodGroupComponent,
+    FoodCardComponent,
+    RegisterComponent,
+    LoginComponent,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -25,6 +36,7 @@ import { LoginComponent } from './pages/login/login.component';
     MatIconModule,
     FontAwesomeModule,
     AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

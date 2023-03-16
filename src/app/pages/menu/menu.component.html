@@ -20,10 +20,10 @@
       <span class="flex items-center p-2 border-b-2 border-header"
         ><img
           class="h-10 pr-3"
-          src="https://assets.nicepagecdn.com/4cf846a1/4346997/images/7903163-a30d18df.png"
+          src="https://assets.nicepagecdn.com/4cf846a1/4346997/images/3553123-4d8f9eaa.png"
           alt=""
         />
-        <h4>Beef / เนื้อวัว</h4></span
+        <h4>Pork / เนื้อหมู</h4></span
       >
       <span class="flex items-center p-2 max-md:border-b-2 max-md:border-header"
         ><img
@@ -36,10 +36,10 @@
       <span class="flex items-center p-2 border-b-2 border-header"
         ><img
           class="h-10 pr-3"
-          src="https://assets.nicepagecdn.com/4cf846a1/4346997/images/3553123-4d8f9eaa.png"
+          src="https://assets.nicepagecdn.com/4cf846a1/4346997/images/7903163-a30d18df.png"
           alt=""
         />
-        <h4>Pork / เนื้อหมู</h4></span
+        <h4>Beef / เนื้อวัว</h4></span
       >
       <span class="flex items-center p-2 max-md:border-b-2 max-md:border-header"
         ><img
@@ -84,6 +84,14 @@
     </div>
   </section>
   <div class="section" id="food_list">
+    <div *ngFor="let key of menuData">
+      {{ key }}:
+      <ul>
+        <li *ngFor="let item of menuData[key]">
+          {{ item }}
+        </li>
+      </ul>
+    </div>
     <app-food-group></app-food-group>
     <app-food-group></app-food-group>
   </div>
