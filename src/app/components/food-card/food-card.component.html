@@ -3,24 +3,24 @@
 >
   <img
     class="aspect-video w-5/6 mx-auto sm:mx-0 rounded-[2em] object-cover sm:aspect-square sm:w-5/12 sm:max-w-[255px]"
-    src="https://assets.nicepagecdn.com/4cf846a1/4346997/images/1fc9f3ddcffe2df2ab6e7b93c5c91a337afa17799174a26e0105fca06bdd1a00b2f9b9d32099dd0ebc6ae7c0fc6ed8c3edebb8776e6ea638069de9_1280.jpg"
+    [src]="data.img"
     alt=""
   />
   <div class="text relative pt-5 mx-5 sm:w-full">
-    <h3>ชื่ออาหาร</h3>
+    <h3>{{ data.name }}</h3>
     <div
       class="btpn sm:absolute lg:relative xl:absolute sm:w-full sm:bottom-6 lg:bottom-0 xl:bottom-6"
     >
       <h4
         class="font-bold text-header pb-6 sm:pb-2 sm:text-right lg:pb-6 lg:text-left xl:pb-2 xl:text-right"
       >
-        50 บาท
+        {{ data.price }} บาท
       </h4>
       <div class="sm:flex sm:justify-end">
         <button
           class="w-full sm:w-36 lg:w-full xl:w-36 relative text-center p-3 text-white bg-header rounded-[2em]"
         >
-          แก้ไขเมนู
+          {{ temp_status == 0 ? "เตรียมสั่ง" : "แก้ไขเมนู" }}
         </button>
       </div>
     </div>

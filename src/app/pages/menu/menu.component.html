@@ -1,3 +1,10 @@
+<div
+  (click)="upTop()"
+  routerLink="/menu"
+  class="group fixed bottom-6 right-6 w-16 h-16 bg-main_3_bg rounded-lg border-2 border-slate-600 cursor-pointer hover:-translate-y-3 text-white flex justify-center items-center"
+>
+  <fa-icon [icon]="faArrowUp" class="group-hover:-translate-y-1"></fa-icon>
+</div>
 <div class="container mx-auto xl:max-w-screen-xl">
   <section
     id="menu"
@@ -17,65 +24,89 @@
     <div
       class="px-6 grid sm:grid-cols-2 sm:grid-rows-4 md:grid-cols-4 md:grid-rows-2 sm:grid-flow-col text-white gap-3"
     >
-      <span class="flex items-center p-2 border-b-2 border-header"
+      <span
+        routerLink="/menu"
+        fragment="Pork"
+        class="flex items-center p-2 border-b-2 border-header cursor-pointer group hover:bg-header hover hover:text-black hover:scale-105"
         ><img
-          class="h-10 pr-3"
+          class="h-10 pr-3 group-hover:invert"
           src="https://assets.nicepagecdn.com/4cf846a1/4346997/images/3553123-4d8f9eaa.png"
           alt=""
         />
         <h4>Pork / เนื้อหมู</h4></span
       >
-      <span class="flex items-center p-2 max-md:border-b-2 max-md:border-header"
+      <span
+        routerLink="/menu"
+        fragment="Spaghetti"
+        class="flex items-center p-2 max-md:border-b-2 max-md:border-header cursor-pointer group hover:bg-header hover hover:text-black hover:scale-105"
         ><img
-          class="h-10 pr-3"
+          class="h-10 pr-3 group-hover:invert"
           src="https://assets.nicepagecdn.com/4cf846a1/4346997/images/3067921-0823d810.png"
           alt=""
         />
         <h4>Spaghetti / สปาเก็ตตี้</h4></span
       >
-      <span class="flex items-center p-2 border-b-2 border-header"
+      <span
+        routerLink="/menu"
+        fragment="Beef"
+        class="flex items-center p-2 border-b-2 border-header cursor-pointer group hover:bg-header hover hover:text-black hover:scale-105"
         ><img
-          class="h-10 pr-3"
+          class="h-10 pr-3 group-hover:invert"
           src="https://assets.nicepagecdn.com/4cf846a1/4346997/images/7903163-a30d18df.png"
           alt=""
         />
         <h4>Beef / เนื้อวัว</h4></span
       >
-      <span class="flex items-center p-2 max-md:border-b-2 max-md:border-header"
+      <span
+        routerLink="/menu"
+        fragment="Salad"
+        class="flex items-center p-2 max-md:border-b-2 max-md:border-header cursor-pointer group hover:bg-header hover hover:text-black hover:scale-105"
         ><img
-          class="h-10 pr-3"
+          class="h-10 pr-3 group-hover:invert"
           src="https://assets.nicepagecdn.com/4cf846a1/4346997/images/1895707-830b2333.png"
           alt=""
         />
         <h4>Salad / สลัด</h4></span
       >
-      <span class="flex items-center p-2 border-b-2 border-header"
+      <span
+        routerLink="/menu"
+        fragment="Fish"
+        class="flex items-center p-2 border-b-2 border-header cursor-pointer group hover:bg-header hover hover:text-black hover:scale-105"
         ><img
-          class="h-10 pr-3"
+          class="h-10 pr-3 group-hover:invert"
           src="https://assets.nicepagecdn.com/4cf846a1/4346997/images/2270959-0d1e4707.png"
           alt=""
         />
         <h4>Fish / เนื้อปลา</h4></span
       >
-      <span class="flex items-center p-2 max-md:border-b-2 max-md:border-header"
+      <span
+        routerLink="/menu"
+        fragment="Drinks"
+        class="flex items-center p-2 max-md:border-b-2 max-md:border-header cursor-pointer group hover:bg-header hover hover:text-black hover:scale-105"
         ><img
-          class="h-10 pr-3"
+          class="h-10 pr-3 group-hover:invert"
           src="https://assets.nicepagecdn.com/4cf846a1/4346997/images/3126588-d5de50ce.png"
           alt=""
         />
         <h4>Drinks / เครื่องดื่ม</h4></span
       >
-      <span class="flex items-center p-2 border-b-2 border-header"
+      <span
+        routerLink="/menu"
+        fragment="Chicken"
+        class="flex items-center p-2 border-b-2 border-header cursor-pointer group hover:bg-header hover hover:text-black hover:scale-105"
         ><img
-          class="h-10 pr-3"
+          class="h-10 pr-3 group-hover:invert"
           src="https://assets.nicepagecdn.com/4cf846a1/4346997/images/9828295-e5c85f17.png"
           alt=""
         />
         <h4>Chicken / เนื้อไก่</h4></span
       >
-      <span class="flex items-center p-2 max-md:border-b-2 max-md:border-header"
+      <span
+        routerLink="/menu"
+        fragment="Appetizer"
+        class="flex items-center p-2 max-md:border-b-2 max-md:border-header cursor-pointer group hover:bg-header hover hover:text-black hover:scale-105"
         ><img
-          class="h-10 pr-3"
+          class="h-10 pr-3 group-hover:invert"
           src="https://assets.nicepagecdn.com/4cf846a1/4346997/images/9537858-11eb6ddb.png"
           alt=""
         />
@@ -85,14 +116,10 @@
   </section>
   <div class="section" id="food_list">
     <div *ngFor="let key of menuData">
-      {{ key }}:
-      <ul>
-        <li *ngFor="let item of menuData[key]">
-          {{ item }}
-        </li>
-      </ul>
+      <app-food-group
+        [group_name]="key"
+        [group_data]="menuContent[key]"
+      ></app-food-group>
     </div>
-    <app-food-group></app-food-group>
-    <app-food-group></app-food-group>
   </div>
 </div>
