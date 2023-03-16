@@ -8,12 +8,12 @@
         <fa-icon [icon]="faBars"></fa-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item routerLink="">Home</button>
+        <button mat-menu-item routerLink="" fragment="main">Home</button>
         <button mat-menu-item routerLink="" fragment="special">Specials</button>
         <button mat-menu-item routerLink="/menu">Menu</button>
         <button mat-menu-item routerLink="" fragment="contact">Contact</button>
       </mat-menu>
-      <button mat-icon-button aria-label="user" class="w-10 h-10">
+      <button mat-icon-button aria-label="user" class="w-10 h-10" routerLink="/login">
         <fa-icon [icon]="faUser"></fa-icon>
       </button>
     </div>

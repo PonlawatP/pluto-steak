@@ -11,10 +11,8 @@ import { AdminComponent } from './pages/admin/admin.component';
 const routes: Routes = [
   { path: '', component: MainComponent },
   { path: 'menu', component: MenuComponent },
-  { path: 'account', redirectTo:"",children:[
-    { path: 'register', component: RegisterComponent },
-    { path: 'login', component: LoginComponent },
-  ]},
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'cart', component: CartComponent },
   { path: 'admin', component: AdminComponent },
 
