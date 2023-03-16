@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-food-card',
@@ -12,4 +13,14 @@ export class FoodCardComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  addCartPopup() {
+    Swal.fire({
+      icon: 'success',
+      title: 'เพิ่มการเตรียมสั่งสินค้าแล้ว',
+      text: 'ขอบคุณครับ',
+      showCloseButton: false,
+      showConfirmButton: false,
+    });
+  }
 }
