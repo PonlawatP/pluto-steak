@@ -9,4 +9,8 @@ export class MainComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+  upTop() {
+    window.document.body.scrollTop = 0;
+    window.document.documentElement.scrollTop = 0;
+  }
 }
