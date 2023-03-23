@@ -16,9 +16,12 @@ import { FoodGroupComponent } from './components/food-group/food-group.component
 import { FoodCardComponent } from './components/food-card/food-card.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
+import {MatButtonModule} from '@angular/material/button';
 import { CartComponent } from './pages/cart/cart.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { HttpClientModule } from '@angular/common/http';
+import { InputTextModule } from 'primeng/inputtext';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +44,10 @@ import { HttpClientModule } from '@angular/common/http';
     FontAwesomeModule,
     AppRoutingModule,
     HttpClientModule,
+    InputTextModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -4,7 +4,57 @@
   </button> -->
   <div class="container xl:max-w-screen-xl mx-auto h-full flex justify-end items-center">
     <div class="pr-2 flex gap-2 text-white">
-      <button mat-icon-button mat-button [matMenuTriggerFor]="menu" aria-label="list menu" class="w-10 h-10">
+      <button
+        mat-button
+        aria-label="home"
+        class="duration-75 font-bold px-2 hover:bg-white/20 hover:border-b-2 rounded-md border-header hidden sm:block"
+        routerLink=""
+        fragment="main"
+      >
+        Home
+      </button>
+      <button
+        mat-button
+        aria-label="special"
+        class="duration-75 font-bold px-2 hover:bg-white/20 hover:border-b-2 rounded-md border-header hidden sm:block"
+        routerLink=""
+        fragment="special"
+      >
+        Specials
+      </button>
+      <button
+        mat-button
+        aria-label="menu"
+        class="duration-75 font-bold px-2 hover:bg-white/20 hover:border-b-2 rounded-md border-header hidden sm:block"
+        routerLink="/menu"
+      >
+        Menu
+      </button>
+      <!-- ------------ -->
+      <button
+        mat-button
+        aria-label="cart"
+        class="duration-75 font-bold px-2 hover:bg-white/20 hover:border-b-2 rounded-md border-header hidden sm:block"
+        routerLink="/cart"
+      >
+        Cart
+      </button>
+      <!-- ------------ -->
+      <button
+        mat-button
+        aria-label="contact"
+        class="duration-75 font-bold px-2 hover:bg-white/20 hover:border-b-2 rounded-md border-header hidden sm:block"
+        routerLink=""
+        fragment="contact"
+      >
+        Contact
+      </button>
+      <button
+        mat-button
+        [matMenuTriggerFor]="menu"
+        aria-label="list menu"
+        class="w-10 h-10 sm:hidden"
+      >
         <fa-icon [icon]="faBars"></fa-icon>
       </button>
       <mat-menu #menu="matMenu">
