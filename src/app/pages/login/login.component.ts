@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -15,9 +16,14 @@ export class LoginComponent implements OnInit {
   password: string = '';
 
   ngOnInit(): void {
+    // this.route.navigateByUrl('/');
     // if (localStorage.getItem('auth_data')) {
     //   localStorage.removeItem('auth_data');
     // }
+  }
+  upTop() {
+    window.document.body.scrollTop = 0;
+    window.document.documentElement.scrollTop = 0;
   }
 
   checkLogin() {
@@ -42,7 +48,7 @@ export class LoginComponent implements OnInit {
             timer: 2000,
             timerProgressBar: true,
             didClose: () => {
-              this.route.navigate(['']);
+              this.route.navigate(['menu']);
             },
           });
         } else {

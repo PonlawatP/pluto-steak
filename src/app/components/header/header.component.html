@@ -49,14 +49,26 @@
       >
         <fa-icon [icon]="faBars"></fa-icon>
       </button>
-      <button
-        mat-icon-button
-        aria-label="user"
-        class="w-10 h-10"
-        routerLink="/login"
-      >
-        <fa-icon [icon]="faUser"></fa-icon>
-      </button>
+      <div *ngIf="checkAuth(); else nologin">
+        <button
+          mat-icon-button
+          [matMenuTriggerFor]="profile"
+          aria-label="user"
+          class="w-10 h-10"
+        >
+          <fa-icon [icon]="faUser"></fa-icon>
+        </button>
+      </div>
+      <ng-template #nologin>
+        <button
+          mat-icon-button
+          aria-label="user"
+          class="w-10 h-10"
+          routerLink="/login"
+        >
+          <fa-icon [icon]="faUser"></fa-icon>
+        </button>
+      </ng-template>
     </div>
   </div>
 </div>
@@ -65,4 +77,10 @@
   <button mat-menu-item routerLink="" fragment="special">Specials</button>
   <button mat-menu-item routerLink="/menu">Menu</button>
   <button mat-menu-item routerLink="" fragment="contact">Contact</button>
+</mat-menu>
+
+<mat-menu #profile="matMenu">
+  <button mat-menu-item routerLink="/profile">Profile</button>
+  <button mat-menu-item routerLink="/cart">My Order</button>
+  <button mat-menu-item (click)="logout()">Logout</button>
 </mat-menu>

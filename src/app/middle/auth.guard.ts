@@ -17,7 +17,7 @@ export class AuthGuard implements CanActivate {
     }
 
     localStorage.removeItem('auth_data');
-    this.router.navigate(['/account/login'], {
+    this.router.navigate(['/login'], {
       queryParams: { returnUrl: state.url },
     });
     return true;
