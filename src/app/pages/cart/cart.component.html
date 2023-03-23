@@ -15,35 +15,39 @@
           <div class="left relative">
             <h4 class="text-2xl pb-6">{{ cart_i.name }}</h4>
             <p>ราคาต่อชิ้น : ${{ cart_i.price }}</p>
-            <button
-              mat-button
-              aria-label="remove"
-              class="absolute bottom-0 duration-75 font-bold px-2 bg-red-500 hover:bg-red-800 hover:border-b-2 rounded-md border-red-400 hidden sm:block"
-            >
-              ลบสินค้าจากตะกร้า
-            </button>
+
+            <div class="absolute bottom-0">
+              <button
+                mat-button
+                aria-label="remove"
+                (click)="deleteOrder(cart_i.fid)"
+                class="duration-75 font-bold px-2 bg-red-500 hover:bg-red-800 hover:border-b-2 rounded-md border-red-400 hidden sm:block"
+              >
+                ลบสินค้าจากตะกร้า
+              </button>
+            </div>
           </div>
           <div class="right relative text-right">
             <div class="relative pb-8">
               <!-- <p class="absolute -top-3">Price</p> -->
-              <h3>$250</h3>
+              <h3>${{ cart_i.price * cart_i.amount }}</h3>
             </div>
-            <div class="relative text-center">
+            <div class="absolute bottom-0 right-0 text-center w-24">
               <p class="absolute -top-7 w-full">Quantity</p>
-              <h4>1</h4>
+              <h4>{{ cart_i.amount }}</h4>
 
               <div class="grid w-full h-7 grid-cols-2 gap-3">
                 <button
-                  mat-icon-button
                   aria-label="add"
-                  class="rounded-full hover:bg-slate-500 hover:text-white text-green-600 bg-white"
+                  (click)="incOrder(cart_i.fid)"
+                  class="rounded-md hover:bg-slate-500 hover:text-white text-green-600 bg-white"
                 >
                   <fa-icon [icon]="faPlus"></fa-icon>
                 </button>
                 <button
-                  mat-icon-button
                   aria-label="rem"
-                  class="rounded-full hover:bg-slate-500 hover:text-white text-red-600 bg-white"
+                  (click)="decOrder(cart_i.fid)"
+                  class="rounded-md hover:bg-slate-500 hover:text-white text-red-600 bg-white"
                 >
                   <fa-icon [icon]="faMinus"></fa-icon>
                 </button>

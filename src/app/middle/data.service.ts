@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import Swal from 'sweetalert2';
+import { CartInterface } from '../interfaces/cart-interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
   constructor(private http: HttpClient) {}
-  cartData: any;
+  cartData = <CartInterface>{};
   reloadCartData() {
     if (localStorage.getItem('auth_data')) {
       let username = JSON.parse(
