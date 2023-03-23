@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Routes } from '@angular/router';
+import { DataService } from './middle/data.service';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,8 @@ import { Routes } from '@angular/router';
 })
 export class AppComponent {
   title = 'pluto-steak';
+  constructor(private serv: DataService) {}
+  routeChange() {
+    this.serv.reloadCartData();
+  }
 }
