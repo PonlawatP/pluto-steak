@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;300;400;700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@100;300;400;700&display=swap");
 
 body {
   height: 100vh;
@@ -16,10 +15,10 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Kanit', sans-serif;
+  font-family: "Kanit", sans-serif;
 }
 
-form.container {
+.form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,12 +27,11 @@ form.container {
   background: #262626;
   max-width: 360px;
   margin: 0 auto 100px;
-  padding-bottom : 50px;
+  padding-bottom: 50px;
   opacity: 95%;
   border-radius: 30px;
   text-align: center;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-
 }
 
 h6 {
@@ -55,14 +53,13 @@ input {
   outline: none;
   text-align: center;
   border-radius: 10px;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .text-box {
   color: #fff;
   background-color: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.5);
-  ;
 }
 
 .text-box::placeholder {
