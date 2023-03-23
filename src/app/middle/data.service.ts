@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 })
 export class DataService {
   constructor(private http: HttpClient) {}
-  public cartData = {};
+  cartData: any;
   reloadCartData() {
     if (localStorage.getItem('auth_data')) {
       let username = JSON.parse(
