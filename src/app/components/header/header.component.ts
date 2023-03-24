@@ -21,6 +21,11 @@ export class HeaderComponent implements OnInit {
     return localStorage.getItem('auth_data') ? true : false;
   }
 
+  getUser() {
+    return JSON.parse(localStorage.getItem('auth_data') || "{username:''}")
+      .username;
+  }
+
   logout() {
     localStorage.removeItem('auth_data');
     localStorage.removeItem('cart');
