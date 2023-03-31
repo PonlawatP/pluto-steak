@@ -24,6 +24,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './pages/profile/profile.component';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { OrderComponent } from './pages/order/order.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     CartComponent,
     AdminComponent,
     ProfileComponent,
+    OrderComponent,
   ],
   imports: [
     BrowserModule,
