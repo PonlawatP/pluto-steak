@@ -25,6 +25,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './pages/profile/profile.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { OrderComponent } from './pages/order/order.component';
+import { ProductsDetailComponent } from './pages/products-detail/products-detail.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { OrderComponent } from './pages/order/order.component';
     AdminComponent,
     ProfileComponent,
     OrderComponent,
+    ProductsDetailComponent,
   ],
   imports: [
     BrowserModule,

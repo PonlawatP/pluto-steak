@@ -1,0 +1,41 @@
+<div class="container mx-auto pt-20">
+  <div class="bg-lightpink p-5">
+    <div class="grid grid-cols-4 gap-2 bg-500 mb-2 p-2 text-white text-center font-bold font-cursive" style="align-items: center; background-color: #69A33B; width: 100%;  border-radius: 20px; box-shadow: 0 0 3px #000000;">
+      <div class="col-span-1">รายการอาหาร</div>
+      <div class="col-span-1">ราคา</div>
+      <div class="col-span-1">จำนวน</div>
+      <div class="col-span-1">รวม</div>
+    </div>
+    <div class="bg-white font-cursive rounded-t-lg">
+      <div class="grid grid-cols-4 gap-2 p-5">
+        <div class="text-center">
+          <!-- {{list.name}} -->
+          กะเพรา
+        </div>
+        <div class="text-center">
+          <!-- {{list.price}} -->
+          250
+        </div>
+        <div class="text-center">
+          <span>
+            <!-- {{list.amount}} -->
+            2
+          </span>
+        </div>
+        <div class="text-center">
+          <!-- {{list.total}} -->
+          500
+        </div>
+      </div>
+    </div>
+    <div class="bg-white font-cursive p-5 rounded-b-lg" style="border-top: 1px solid black;">
+      <div class="grid grid-cols-2 gap-2">
+        <div class="text-right">รวมราคาทั้งหมด</div>
+        <div class="text-left">
+          <!-- {{this.sum}} -->
+          500
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
