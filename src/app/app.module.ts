@@ -23,6 +23,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { OrderComponent } from './pages/order/order.component';
+import { ProductsDetailComponent } from './pages/products-detail/products-detail.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +41,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
     CartComponent,
     AdminComponent,
     ProfileComponent,
+    OrderComponent,
+    ProductsDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +56,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
+    MatExpansionModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

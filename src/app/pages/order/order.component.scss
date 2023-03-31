@@ -1,0 +1,28 @@
+.ow {
+  font-family: 'Kanit', sans-serif;
+  font-size: 18px;
+}
+
+.centerrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+select:required:invalid {
+  color: #666;
+}
+option[value=""][disabled] {
+  display: none;
+}
+option {
+  color: #000;
+}
+
+a:link { text-decoration: none; color: black; }
+a:visited { text-decoration: none; color: black;}
+a:hover { text-decoration: none; color: blue;}
+a:active { text-decoration: none; color: black;}
+
+.r:hover {  background-color: azure;}
+.nr:hover {  background-color: white;}

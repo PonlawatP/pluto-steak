@@ -1,1 +1,59 @@
-<p>profile works!</p>
+<div class="container mx-auto pt-20">
+  <h1 class="flex justify-left items-center font-itim text-lg font-bold text-gray-700">
+    <p style="color: rgb(255, 255, 255);">ประวัติการสั่งซื้อ</p>
+  </h1>
+  <div class="container my-3" style="background-color: #69A33B; width: 100%;  border-radius: 20px; box-shadow: 0 0 10px #000000;">
+    <div class="rounded-lg p-4">
+      <div class="grid grid-cols-5 gap-2 text-white mx-6" style="font-weight: bolder; text-shadow: 0 0 3px #000000; letter-spacing: 1px;">
+        <div class="col-span-1 flex justify-center items-center">ลำดับ</div>
+        <div class="col-span-1 flex justify-center items-center">วันที่สั่ง</div>
+        <div class="col-span-1 flex justify-center items-center">สถานะจัดส่ง</div>
+        <div class="col-span-1 flex justify-center items-center">ราคารวม</div>
+        <div class="col-span-1 flex justify-center items-center">รายละเอียดการสั่ง</div>
+      </div>
+      <div class="card rounded-lg mt-4" >
+        <mat-accordion>
+          <mat-expansion-panel class="bg-dark" style="box-shadow: 0 0 5px #000000;" >
+            <mat-expansion-panel-header class="font-itim text-base my-2 text-gray-700">
+              <div class="grid grid-cols-5 gap-2 w-full" style="color: white;">
+                <div class="col-span-1 flex justify-center">
+                  <!-- {{bill.num}} -->1
+                </div>
+                <div class="col-span-1 flex justify-center">
+                  <!-- {{bill.date}} -->20/02/2565
+                </div>
+                <div class="col-span-1 flex justify-center">
+                  <!-- {{bill.status}} -->ยังไม่ส่ง
+                </div>
+                <div class="col-span-1 flex justify-center ">
+                  <!-- {{bill.price}} -->250
+                </div>
+                <div class="col-span-1 flex justify-center ">
+                  ดูรายละเอียด
+                </div>
+              </div>
+            </mat-expansion-panel-header>
+            <div class="card rounded-lg mt-4" style="border: 2px solid rgb(255, 255, 255); padding-left: 3%; padding-top: 10px;  box-shadow: 0 0 5px #000000;">
+              <div class="grid grid-cols-3 gap-2 text-gray-700 font-itim" style="color: white; font-weight: bolder; text-shadow: 0 0 3px #000000; letter-spacing: 0.5px;">
+                <div class="flex justify-start">รายการอาหาร</div>
+                <div class="flex justify-center">จำนวน</div>
+                <div class="flex justify-center">ราคา</div>
+              </div>
+              <div class="grid grid-cols-3 gap-2 my-2 text-gray-700 font-itim" style="color: white;">
+                <div class="flex justify-start">
+                  <p>กะเพรา</p>
+                </div>
+                <div class="flex justify-center">
+                  <p>1</p>
+                </div>
+                <div class="flex justify-center">
+                  <p>250</p>
+                </div>
+              </div>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </div>
+  </div>
+</div>
