@@ -12,5 +12,6 @@ export class AppComponent {
   constructor(private serv: DataService) {}
   routeChange() {
     this.serv.reloadCartData();
+    this.serv.reloadOrderData();
   }
 }

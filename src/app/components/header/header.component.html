@@ -34,6 +34,7 @@
       </button>
       <!-- ------------ -->
       <button
+        *ngIf="checkAuth() && !serv.isStaff()"
         mat-button
         aria-label="cart"
         class="duration-75 font-bold px-2 hover:bg-white/20 hover:border-b-2 rounded-md border-header hidden sm:block"
@@ -43,15 +44,17 @@
       </button>
       <!-- ------------ -->
       <button
+        *ngIf="checkAuth() && !serv.isStaff()"
         mat-button
-        aria-label="profile"
+        aria-label="cart"
         class="duration-75 font-bold px-2 hover:bg-white/20 hover:border-b-2 rounded-md border-header hidden sm:block"
         routerLink="/profile"
       >
-        Profile
+        Order
       </button>
       <!-- ------------ -->
       <button
+        *ngIf="checkAuth() && serv.isStaff()"
         mat-button
         aria-label="order"
         class="duration-75 font-bold px-2 hover:bg-white/20 hover:border-b-2 rounded-md border-header hidden sm:block"
@@ -70,14 +73,23 @@
         Contact
       </button>
       <button
+        *ngIf="!checkAuth()"
+        mat-button
+        aria-label="login"
+        class="duration-75 font-bold px-2 hover:bg-white/20 hover:border-b-2 rounded-md border-header hidden sm:block"
+        routerLink="/login"
+      >
+        Login
+      </button>
+      <!-- <button
         mat-button
         [matMenuTriggerFor]="menu"
         aria-label="list menu"
         class="w-10 h-10 sm:hidden"
       >
-        <fa-icon [icon]="faBars"></fa-icon>
-      </button>
-      <div *ngIf="checkAuth(); else nologin">
+        <fa-icon [icon]="faBars"></fa-icon> 
+      </button>-->
+      <div *ngIf="checkAuth()">
         <button
           mat-icon-button
           [matMenuTriggerFor]="profile"
@@ -87,16 +99,6 @@
           <fa-icon [icon]="faUser"></fa-icon>
         </button>
       </div>
-      <ng-template #nologin>
-        <button
-          mat-icon-button
-          aria-label="user"
-          class="w-10 h-10"
-          routerLink="/login"
-        >
-          <fa-icon [icon]="faUser"></fa-icon>
-        </button>
-      </ng-template>
     </div>
   </div>
 </div>
@@ -109,6 +111,6 @@
 </mat-menu>
 
 <mat-menu #profile="matMenu">
-  <button mat-menu-item routerLink="/profile">{{ getUser() }}</button>
+  <button mat-menu-item routerLink="/">{{ getUser() }}</button>
   <button mat-menu-item (click)="logout()">Logout</button>
 </mat-menu>

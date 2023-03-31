@@ -2,6 +2,7 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { faBars, faUser } from '@fortawesome/free-solid-svg-icons';
+import { DataService } from 'src/app/middle/data.service';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,7 @@ import { faBars, faUser } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  constructor(private route: Router) {}
+  constructor(private route: Router, public serv: DataService) {}
   faBars = faBars;
   faUser = faUser;
 

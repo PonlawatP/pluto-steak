@@ -5,6 +5,7 @@ import { faPlusCircle, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
 import { CartItem } from 'src/app/interfaces/cart-item';
 import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -12,7 +13,11 @@ import Swal from 'sweetalert2';
   styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent implements OnInit {
-  constructor(public serv: DataService, private http: HttpClient) {}
+  constructor(
+    public serv: DataService,
+    private http: HttpClient,
+    private route: Router
+  ) {}
   faPlus = faPlusCircle;
   faMinus = faMinusCircle;
 
@@ -120,6 +125,54 @@ export class CartComponent implements OnInit {
 
             Swal.close();
             Swal.fire('ลบรายการสำเร็จ', '', 'success');
+          });
+      }
+    });
+  }
+  submitOrder() {
+    Swal.fire({
+      title: 'แสกน Qr Code เพื่อชำระเงิน',
+      imageUrl:
+        'https://www.avarinshop.com/wp-content/uploads/2018/11/Qr-code-pay-avarin.jpg',
+      imageWidth: 400,
+      imageHeight: 480,
+      imageAlt: 'Custom image',
+      showCancelButton: true,
+      confirmButtonColor: 'rgb(105 163 59)',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'ยืนยัน',
+      cancelButtonText: 'ยกเลิก',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: 'รอสักครู่',
+          text: '',
+          showConfirmButton: false,
+          allowOutsideClick: false,
+        });
+
+        let username = JSON.parse(
+          localStorage.getItem('auth_data') || '{username:""}'
+        ).username;
+        let url = 'http://localhost/plutosteak-api/account/cart/submit';
+        this.http
+          .post(
+            url,
+            {},
+            {
+              headers: { Username: username },
+            }
+          )
+          .subscribe((response: any) => {
+            this.serv.reloadCartData();
+            Swal.close();
+            Swal.fire({
+              title: 'สั่งซื้อสำเร็จ',
+              icon: 'success',
+              didClose: () => {
+                this.route.navigate(['profile']);
+              },
+            });
           });
       }
     });

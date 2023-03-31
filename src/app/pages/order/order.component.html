@@ -1,61 +1,94 @@
-<div class="container ow mx-auto pt-20" >
-  <h1 class="flex justify-center font-italic font-bold text-lg text-white items-center">
-    <span class="inline-flex items-center mx-2 my-2"><i class="material-icons" >receipt</i></span>
-   <p>รายการสั่งซื้อ</p>
+<div class="container ow mx-auto pt-20">
+  <h1
+    class="flex justify-center font-italic font-bold text-lg text-white items-center"
+  >
+    <span class="inline-flex items-center mx-2 my-2"
+      ><i class="material-icons">receipt</i></span
+    >
+    <p>รายการสั่งซื้อ</p>
   </h1>
 </div>
 
-<div class="container my-4 mx-auto" >
-  <div class="card bg-500 mb-2 p-2 " style="background-color: #69A33B; width: 100%;  border-radius: 20px; box-shadow: 0 0 3px #000000; ">
-      <div class="grid grid-cols-6 text-white text-center" style="justify-content: center;">
-          <div class="col-span-1">ใบออเดอร์</div>
-          <div class="col-span-1">วันที่สั่ง</div>
-          <div class="col-span-1">ชื่อลูกค้า</div>
-          <div class="col-span-1">ราคารวม</div>
-          <div class="col-span-1">สถานะจัดส่ง</div>
-          <div class="col-span-1">จัดการข้อมูล</div>
-      </div>
+<div class="container my-4 mx-auto">
+  <div
+    class="card bg-500 mb-2 p-2"
+    style="
+      background-color: #69a33b;
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 0 3px #000000;
+    "
+  >
+    <div
+      class="grid grid-cols-6 text-white text-center"
+      style="justify-content: center"
+    >
+      <div class="col-span-1">ใบออเดอร์</div>
+      <div class="col-span-1">วันที่สั่ง</div>
+      <div class="col-span-1">ชื่อลูกค้า</div>
+      <div class="col-span-1">ราคารวม</div>
+      <div class="col-span-1">สถานะจัดส่ง</div>
+      <div class="col-span-1">จัดการข้อมูล</div>
+    </div>
   </div>
 
-  <div class="card mx-5 my-2 p-2 rounded-lg" style="background-color: white;">
-    <div class="grid grid-cols-6 text-center my-2 cursor-default">
+  <div class="" *ngFor="let data of serv.orderData">
+    <div class="card mx-5 my-2 p-2 rounded-lg" style="background-color: white">
+      <div class="grid grid-cols-6 text-center my-2 cursor-default">
         <div class="col-span-1">
           <!-- {{billall.num}} -->
-          อันดับ
+          {{ data.bid }}
         </div>
         <div class="col-span-1">
           <!-- {{billall.date}} -->
-          วันที่
+          {{ data.Datetime }}
         </div>
         <div class="col-span-1">
           <!-- {{billall.name}} -->
-          ชื่อ
+          {{ data.Customer_name }}
         </div>
         <div class="col-span-1">
           <!-- {{billall.price}} -->
-          ราคา
+          {{ serv.getStatusText(data.status) }}
         </div>
-        <div class="col-span-1" style="margin-top: -20px; ">
-          <!-- {{billall.status}} -->
+        <div class="col-span-1">
+          <!-- {{billall.price}} -->
+          {{ data.Total_price }}.-
+        </div>
+        <!-- <div class="col-span-1 ml-20" style="margin-top: -20px">
           <mat-form-field appearance="fill">
-            <select matNativeControl required style="width: 50%;  border-radius: 20px; box-shadow: 0 0 3px #000000;">
+            <select
+              matNativeControl
+              required
+              style="
+                width: 50%;
+                border-radius: 20px;
+                box-shadow: 0 0 3px #000000;
+              "
+            >
               <option value="not_delivered_yet">ยังไม่ส่ง</option>
-              <option value="successfully">จัดส่งแล้ว</option>
+              <option value="1">จัดส่งแล้ว</option>
             </select>
           </mat-form-field>
-        </div>
+        </div> -->
         <div class="col-span-1 cursor-pointer">
-          <i class="material-icons"routerLink="/products-detail">create</i>
+          <i class="material-icons" (click)="showDetail(data)">create</i>
         </div>
+      </div>
     </div>
   </div>
 
-  <div class="flex my-3">
+  <!-- <div class="flex my-3">
     <div class="col-span-3 mx-auto">
-      <button [routerLink]="['/owner-menu']" class="text-white bg-500 rounded-md py-2 px-4 font-italic font-bold text-md" style="background-color: #69A33B;">
-        <span class="inline-flex items-center mx-2"><i class="material-icons">restaurant</i></span>จัดการเมนูอาหาร
+      <button
+        [routerLink]="['/owner-menu']"
+        class="text-white bg-500 rounded-md py-2 px-4 font-italic font-bold text-md"
+        style="background-color: #69a33b"
+      >
+        <span class="inline-flex items-center mx-2"
+          ><i class="material-icons">restaurant</i></span
+        >จัดการเมนูอาหาร
       </button>
     </div>
-
-  </div>
+  </div> -->
 </div>
