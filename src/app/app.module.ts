@@ -26,6 +26,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { OrderComponent } from './pages/order/order.component';
 import { ProductsDetailComponent } from './pages/products-detail/products-detail.component';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { ProductsDetailComponent } from './pages/products-detail/products-detail
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent],
