@@ -19,10 +19,14 @@ export class OrderComponent implements OnInit {
     description +=
       '<div class="relative w-full flex justify-between pb-4"><p>รายการอาหาร</p><p>จำนวน</p></div>'; // header row
     data.orders.forEach((item) => {
-      description += `<div class="relative w-full flex justify-between"><p>${item.name}</p><p class="w-14 text-center">${item.amount}</p></div>`; // data rows
+      description += `<div class="relative w-full flex justify-between pl-4"><p>${item.name}</p><p class="w-14 text-center">${item.amount}</p></div>`; // data rows
     });
+    description += `<div class="relative pt-4 w-full flex justify-between"><p>รวมทั้งหมด</p><p class="w-14 text-center">${data.Total_price}</p></div>`; // data rows
+    description += `<div class="pt-8"><p>ข้อมูลผู้ส่ง</p></div>`; // data rows
+    description += `  <div class="pt-8 pl-4"><p>ชื่อ : ${data.Customer_name}</p><p>เบอร์มือถือ : ${data.phone_number}</p><p>ที่อยู่ : ${data.address}</p></div>`; // data rows
     description += `<div class="pt-8"><p>แก้ไขสถานะ</p></div>`; // data rows
     description += '</div>';
+
     Swal.fire({
       title: 'ข้อมูลบิลเลขที่ ' + data.bid,
       html: description,

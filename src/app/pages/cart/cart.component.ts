@@ -139,14 +139,39 @@ export class CartComponent implements OnInit {
     });
   }
   submitOrder() {
-    const user = JSON.parse(localStorage.getItem('auth_data') || '{}')
+    let user = JSON.parse(localStorage.getItem('auth_data') || '{}')
 
     Swal.fire({
       title: 'กรอกรายละเอียดการส่งอาหาร',
       html:
-        '<input id="swal-input1" class="swal2-input" placeholder="ชื่อ" value="'+user.name+'">' +
-        '<input id="swal-input2" class="swal2-input" placeholder="ที่อยู่" value="'+(user.address != null ? user.address : '')+'">' +
-        '<input id="swal-input3" class="swal2-input" placeholder="เบอร์มือถือ" value="'+user.phone_number+'">',
+        `
+        <form>
+          <div class="mb-4 ">
+            <label class="block text-left font-bold mb-2 "  for="name">
+              ชื่อ-สกุล
+            </label>
+            <input
+              class="shadow appearance-none border rounded w-full py-2 shadow-md px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="name" type="text" placeholder="ชื่อ-สกุล" value="${user.name}" />
+          </div>
+          <div class="mb-4">
+            <label class="block text-left font-bold mb-2" for="address">
+              ที่อยู่
+            </label>
+            <input
+              class="shadow appearance-none border rounded w-full py-2 px-3 shadow-md text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="address" type="text" placeholder="ที่อยู่" value="${(user.address != null ? user.address : '')}"/>
+          </div>
+          <div class="mb-4">
+            <label class="block text-left font-bold mb-2" for="tel">
+              เบอร์โทร
+            </label>
+            <input
+              class="shadow appearance-none border rounded w-full py-2 px-3 shadow-md text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="tel" type="text" placeholder="เบอร์โทร" value="${user.phone_number}"/>
+          </div>
+        </form>
+        `,
       showCancelButton: true,
       confirmButtonColor: 'rgb(105 163 59)',
       cancelButtonColor: '#d33',
@@ -154,9 +179,9 @@ export class CartComponent implements OnInit {
       cancelButtonText: 'ยกเลิก',
       focusConfirm: false,
       preConfirm: () => {
-        const name = (document.getElementById('swal-input1') as HTMLInputElement).value
-        const phone = (document.getElementById('swal-input2') as HTMLInputElement).value
-        const addr = (document.getElementById('swal-input3') as HTMLInputElement).value
+        const name = (document.getElementById('name') as HTMLInputElement).value
+        const phone = (document.getElementById('tel') as HTMLInputElement).value
+        const addr = (document.getElementById('address') as HTMLInputElement).value
         if (!name || !phone || !addr) {
           Swal.showValidationMessage(`โปรดใส่ข้อมูลให้ครบ`)
         }
@@ -166,6 +191,7 @@ export class CartComponent implements OnInit {
       if (result.isConfirmed) {
         // send data to the server using Ajax or other methods
         console.log(result.value)
+
         let username = JSON.parse(localStorage.getItem('auth_data') || '{username:""}').username
         let url = 'http://localhost/plutosteak-api/account/cart';
         this.http
@@ -181,6 +207,11 @@ export class CartComponent implements OnInit {
             }
           )
           .subscribe((response: any) => {
+            user.name = result.value?.name;
+            user.phone_number = result.value?.phone;
+            user.address = result.value?.addr;
+
+            localStorage.setItem('auth_data', JSON.stringify(user));
             Swal.fire({
               title: 'แสกน Qr Code เพื่อชำระเงิน',
               imageUrl:
@@ -227,6 +258,15 @@ export class CartComponent implements OnInit {
                   });
               }
             });
+          },
+          error => {
+              Swal.fire({
+                icon: 'error',
+                title: 'เกิดข้อผิดพลาด',
+                text: 'โปรดใส่ข้อมูลให้ถูกต้อง',
+                timer: 2000,
+                timerProgressBar: true,
+              });
           });
       }
     })
