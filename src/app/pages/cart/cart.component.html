@@ -30,6 +30,7 @@
           <div class="right relative text-right">
             <div class="relative pb-8">
               <!-- <p class="absolute -top-3">Price</p> -->
+              <!-- {{ incPrice(cart_i.price * cart_i.amount) }} -->
               <h3>${{ cart_i.price * cart_i.amount }}</h3>
             </div>
             <div class="absolute bottom-0 right-0 text-center w-24">
@@ -58,7 +59,11 @@
       </div>
     </div>
   </div>
-  <div class="flex justify-end pt-10">
+  <div class="flex justify-between pt-10">
+    <div class="">
+      <p class="text-xl">รวมทั้งหมด</p>
+      <p class="text-3xl">{{serv.cartData.cart_price}} บาท</p>
+    </div>
     <button
       *ngIf="serv.cartData.cart.length > 0"
       class="w-full sm:w-36 lg:w-full xl:w-36 relative text-center p-3 text-white bg-header rounded-[2em]"

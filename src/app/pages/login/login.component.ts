@@ -40,17 +40,22 @@ export class LoginComponent implements OnInit {
       .subscribe((response: any) => {
         // console.log(response);
         if (response.success) {
-          Swal.close();
-          localStorage.setItem('auth_data', JSON.stringify(response.data));
-          Swal.fire({
-            icon: 'success',
-            title: 'เข้าสู่ระบบสำเร็จ',
-            timer: 2000,
-            timerProgressBar: true,
-            didClose: () => {
-              this.route.navigate(['menu']);
-            },
-          });
+            Swal.close();
+            localStorage.setItem('auth_data', JSON.stringify(response.data));
+            Swal.fire({
+              icon: 'success',
+              title: 'เข้าสู่ระบบสำเร็จ',
+              timer: 2000,
+              timerProgressBar: true,
+              didClose: () => {
+                
+                if(response.data.is_staff == 0){
+                  this.route.navigate(['menu']);
+                } else {
+                  this.route.navigate(['order']);
+                }
+              },
+            });
         } else {
           Swal.fire({
             icon: 'error',
